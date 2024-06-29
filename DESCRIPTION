@@ -1,0 +1,14 @@
+Package: TDC
+Title: TimeSeries Decision tree Classifier
+Version: 0.0.0.9000
+Authors@R: 
+    person("Martina", "Curran", , "martinamariecurran@gmail.com", role = c("aut", "cre"))
+Description: This package classifies timeseries data using categorical attributes for a decision tree. 
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+Imports: 
+    ggplot2,
+    gridExtra,
+    reshape2
