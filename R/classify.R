@@ -7,66 +7,52 @@
 #' @return Character vector of classes
 #' @export
 #'
-#' @examples classify("check2", threshold=.0001, "median", "deleteStart")
+#' @examples classify("C:/users/techstaff/desktop/packagetest/supplementary data/data/check2", threshold=.0001, "median", "deleteStart")
 #'
 classify <- function(fileName,  threshold=.001, ...){
-  print(fileName)
-  print(paste0("threshold", threshold))
-  p <- list(...)
-  print(p)
-  # source("treeCreation.R")
-  # source("chooseAttributesUpdated.R")
-  # source("join.R")
-  # source("F1Score.R")
 
-  #
-  # #run to create initial data for tree OR use dataOriginal.csv
-  # source("dataCreation.R")
+  #run to create initial data for tree OR use dataOriginal.csv
+
   # data <- dataCreation()
   #
   # file<- "dataOriginal"
-  # #data <- read.csv(paste0("./Data/dataLabelled.csv"))
+  #
   # labels <-as.character(t(data[1,]))
   # data <- data[2:nrow(data),]
-  #
-  # #run once to create initial tree
-  # classData <- attributes(file, .001, labels, TRUE,...) #classifierTrue
-  # tree <- createTree(classData, classData$labels) #treeCreation
-  # # c <- as.data.frame(apply(classData[,2:8], 2, as.numeric))
-  # # c <- cbind(classData[,1], c, classData[,9])
-  # # names(c) <- names(classData)
-  # # tree2 <- createTree(c, c$labels)
-  # prp(tree$finalModel, varlen = 0, cex=.9, type=0, extra=2)
-  #
-  # #run repeatedly for desired results
-  # #file <- "check3"
-  #
-  # classDataTest <- attributes(fileName, threshold,NULL, useLabels=FALSE,...) #classifierTrue
-  # a <- predict(tree, classDataTest)
-  # print(a)
-  # #data <- resultComparison(file, a) #join
-  # df <- read.csv(paste0("./Data/",fileName,".csv"))
-  #
-  # ######################
-  # behaviours <- list()
-  # u <- unique(a)
-  # print(u)
-  # for(i in 1:length(u)){
-  #   behaviours[[i]] <- as.data.frame(df[,which(a==u[i])])
-  #
-  # }
-  # plots <- list()
-  # names(behaviours) <- u
-  # for(i in 1:length(behaviours)){
-  #   d <- data.frame("t"=1:nrow(behaviours[[i]]), behaviours[[i]])
-  #   d2 <- reshape2::melt(d, "t")
-  #   #print(ggplot2::ggplot(d2, aes(t, value, col=variable))+geom_line()+ggtitle(names(behaviours)[[i]])+theme(legend.position="none"))
-  #   plots[[length(plots)+1]] <- ggplot(d2, aes(t, value, col=variable))+geom_line()+ggtitle(names(behaviours)[[i]])+theme(legend.position="none")
-  # }
-  #
-  # print(length(plots))
-  # gridExtra::grid.arrange(grobs=plots, ncol=3)
-  # #grid.arrange(plots[[1]], plots[[2]], plots[[3]],ncol=3)
-  # return(a)
+
+  #run once to create initial tree
+  print("creating attributes for training data")
+  classData <- attributes(dataOriginal, .001, ourLabels, TRUE,...) #classifierTrue
+print("creating tree")
+  tree <- createTree(classData, classData$classes) #treeCreation
+  rpart.plot::prp(tree$finalModel, varlen = 0, cex=.9, type=0, extra=2)
+
+  #run repeatedly for desired data
+print("creating attributes for testing data")
+  classDataTest <- attributes(fileName, threshold,NULL, useLabels=FALSE,...) #classifierTrue
+  a <- stats::predict(tree, classDataTest)
+  #data <- resultComparison(file, a) #join
+  df <- utils::read.csv(paste0(fileName,".csv"))
+
+  ######################
+  behaviours <- list()
+  u <- unique(a)
+  for(i in 1:length(u)){
+    behaviours[[i]] <- as.data.frame(df[,which(a==u[i])])
+
+  }
+  plots <- list()
+  names(behaviours) <- u
+  for(i in 1:length(behaviours)){
+    d <- data.frame("t"=1:nrow(behaviours[[i]]), behaviours[[i]])
+    d2 <- reshape2::melt(d, "t")
+
+    plots[[length(plots)+1]] <- ggplot2::ggplot(d2, aes(t, value, col=variable))+geom_line()+ggtitle(names(behaviours)[[i]])+theme(legend.position="none")
+  }
+
+  print(paste0("creating plots of behaviours. You have ", length(plots), " behaviours"))
+  gridExtra::grid.arrange(grobs=plots, ncol=3)
+
+  return(a)
 }
 

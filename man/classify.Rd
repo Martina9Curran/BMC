@@ -20,6 +20,6 @@ Character vector of classes
 Title
 }
 \examples{
-classify("check2", threshold=.0001, "median", "deleteStart")
+classify("C:/users/techstaff/desktop/packagetest/supplementary data/data/check2", threshold=.0001, "median", "deleteStart")
 
 }
