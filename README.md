@@ -33,7 +33,7 @@ only, but do not add .csv to the path\!
 ``` r
 library(TDC)
 ## basic example code
-behaviours <- classify("C:/Users/techstaff/Desktop/packagetest/Supplementary Data/Data/check1")
+behaviours <- classify("C:/Users/techstaff/Desktop/packagetest/Supplementary Data/Data/check3")
 #> [1] "creating attributes for training data"
 #> [1] "getting behaviour modes of data"
 #> [1] "compressing feature vectors"
@@ -50,7 +50,7 @@ behaviours <- classify("C:/Users/techstaff/Desktop/packagetest/Supplementary Dat
     #> [1] "getting behaviour modes of data"
     #> [1] "compressing feature vectors"
     #> [1] "creating attributes"
-    #> [1] "creating plots of behaviours. You have 3 behaviours"
+    #> [1] "creating plots of behaviours. You have 6 behaviours"
 
 <img src="man/figures/README-example-2.png" width="100%" />
 
@@ -61,7 +61,7 @@ equilibrium when you don’t want it, make the threshold smaller (eg 0,
 it to be, make the threshold bigger (eg .01, .025)
 
 ``` r
-classify("C:/Users/techstaff/Desktop/packagetest/Supplementary Data/Data/check1", threshold=.01)
+classify("C:/Users/techstaff/Desktop/packagetest/Supplementary Data/Data/check3", threshold=.0001)
 #> [1] "creating attributes for training data"
 #> [1] "getting behaviour modes of data"
 #> [1] "compressing feature vectors"
@@ -76,11 +76,12 @@ classify("C:/Users/techstaff/Desktop/packagetest/Supplementary Data/Data/check1"
     #> [1] "getting behaviour modes of data"
     #> [1] "compressing feature vectors"
     #> [1] "creating attributes"
-    #> [1] "creating plots of behaviours. You have 3 behaviours"
+    #> [1] "creating plots of behaviours. You have 7 behaviours"
 
 <img src="man/figures/README-threshold-2.png" width="100%" />
 
-    #> [1] G  OC OC OC OG
+    #>  [1] OE  GE  OC  OE  OE  GE  OE  GDE OE  OE  GE  OE  OE  OD  OD  GDE OE  GD  DGE
+    #> [20] OE 
     #> Levels: D DE DG DGE E G GD GDE GE OC OD OE OG
 
 If there are problems with the behaviours (it is growing then declining,
@@ -123,7 +124,7 @@ help remove noise, using this will set it to TRUE, keeping all small
 changes in the data except for the threshold, this still works the same)
 
 ``` r
-classify("C:/Users/techstaff/Desktop/packagetest/Supplementary Data/Data/check1", threshold=.001, "median", "keepDiscrete")
+classify("C:/Users/techstaff/Desktop/packagetest/Supplementary Data/Data/check1", threshold=.001, "deleteStart")
 #> [1] "creating attributes for training data"
 #> [1] "getting behaviour modes of data"
 #> [1] "compressing feature vectors"
@@ -141,46 +142,6 @@ classify("C:/Users/techstaff/Desktop/packagetest/Supplementary Data/Data/check1"
     #> [1] "creating plots of behaviours. You have 3 behaviours"
 
 <img src="man/figures/README-numerous attributes and attributes-2.png" width="100%" />
-
-    #> [1] G  OC OC OC OG
-    #> Levels: D DE DG DGE E G GD GDE GE OC OD OE OG
-    classify("C:/Users/techstaff/Desktop/packagetest/Supplementary Data/Data/check1", threshold=.001, "keepDiscrete", "deleteStart")
-    #> [1] "creating attributes for training data"
-    #> [1] "getting behaviour modes of data"
-    #> [1] "compressing feature vectors"
-    #> [1] "creating attributes"
-    #> [1] "creating tree"
-    #> [1] "training tree"
-
-<img src="man/figures/README-numerous attributes and attributes-3.png" width="100%" />
-
-    #> [1] "creating attributes for testing data"
-    #> [1] "getting behaviour modes of data"
-    #> [1] "compressing feature vectors"
-    #> [1] "creating attributes"
-    #> [1] "creating plots of behaviours. You have 3 behaviours"
-
-<img src="man/figures/README-numerous attributes and attributes-4.png" width="100%" />
-
-    #> [1] G  OC OC OC OG
-    #> Levels: D DE DG DGE E G GD GDE GE OC OD OE OG
-    classify("C:/Users/techstaff/Desktop/packagetest/Supplementary Data/Data/check1", threshold=.001, "deleteStart")
-    #> [1] "creating attributes for training data"
-    #> [1] "getting behaviour modes of data"
-    #> [1] "compressing feature vectors"
-    #> [1] "creating attributes"
-    #> [1] "creating tree"
-    #> [1] "training tree"
-
-<img src="man/figures/README-numerous attributes and attributes-5.png" width="100%" />
-
-    #> [1] "creating attributes for testing data"
-    #> [1] "getting behaviour modes of data"
-    #> [1] "compressing feature vectors"
-    #> [1] "creating attributes"
-    #> [1] "creating plots of behaviours. You have 3 behaviours"
-
-<img src="man/figures/README-numerous attributes and attributes-6.png" width="100%" />
 
     #> [1] G  OC OC OC OG
     #> Levels: D DE DG DGE E G GD GDE GE OC OD OE OG
