@@ -70,5 +70,5 @@ Hyperparameters available for removing unwanted noise include:
 "keepDiscrete" (Default FALSE to help remove noise, using this will set it to TRUE, keeping all small changes in the data except for the threshold, this still works the same)
 
 ```{r numerous attributes and attributes}
-classify("C:/Users/techstaff/Desktop/packagetest/Supplementary Data/Data/check3", threshold=.001, "deleteStart")
+classify("C:/Users/techstaff/Desktop/packagetest/Supplementary Data/Data/check3", threshold=.001, "median", "deleteStart")
 ```

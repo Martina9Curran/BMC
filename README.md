@@ -125,7 +125,7 @@ help remove noise, using this will set it to TRUE, keeping all small
 changes in the data except for the threshold, this still works the same)
 
 ``` r
-classify("C:/Users/techstaff/Desktop/packagetest/Supplementary Data/Data/check3", threshold=.001, "deleteStart")
+classify("C:/Users/techstaff/Desktop/packagetest/Supplementary Data/Data/check3", threshold=.001, "median", "deleteStart")
 #> [1] "creating attributes for training data"
 #> [1] "getting behaviour modes of data"
 #> [1] "compressing feature vectors"
@@ -144,6 +144,6 @@ classify("C:/Users/techstaff/Desktop/packagetest/Supplementary Data/Data/check3"
 
 <img src="man/figures/README-numerous attributes and attributes-2.png" width="100%" />
 
-    #>  [1] OE  GE  OE  OE  OE  GE  OE  GDE DGE OE  GE  OE  OE  OE  OD  GDE DE  GE  DGE
+    #>  [1] OE  GE  OE  OE  OE  GE  OE  DGE GDE OE  GE  OE  OE  OE  OD  DGE DE  GE  GDE
     #> [20] OE 
     #> Levels: D DE DG DGE E G GD GDE GE OC OD OE OG
