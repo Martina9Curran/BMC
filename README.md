@@ -94,7 +94,7 @@ as such, are included as strings in the classify function. Note the
 threshold needs to be added whether or not it is being changed\!
 
 ``` r
-classify("C:/Users/techstaff/Desktop/packagetest/Supplementary Data/Data/check1", threshold=.001, "median")
+classify("C:/Users/techstaff/Desktop/packagetest/Supplementary Data/Data/check3", threshold=.001, "median")
 #> [1] "creating attributes for training data"
 #> [1] "getting behaviour modes of data"
 #> [1] "compressing feature vectors"
@@ -109,11 +109,12 @@ classify("C:/Users/techstaff/Desktop/packagetest/Supplementary Data/Data/check1"
     #> [1] "getting behaviour modes of data"
     #> [1] "compressing feature vectors"
     #> [1] "creating attributes"
-    #> [1] "creating plots of behaviours. You have 3 behaviours"
+    #> [1] "creating plots of behaviours. You have 6 behaviours"
 
 <img src="man/figures/README-attributes-2.png" width="100%" />
 
-    #> [1] G  OC OC OC OG
+    #>  [1] OE  GE  OE  OE  OE  GE  OE  DGE GDE OE  GE  OE  OE  OE  OD  DGE DE  GE  GDE
+    #> [20] OE 
     #> Levels: D DE DG DGE E G GD GDE GE OC OD OE OG
 
 Hyperparameters available for removing unwanted noise include:
@@ -124,7 +125,7 @@ help remove noise, using this will set it to TRUE, keeping all small
 changes in the data except for the threshold, this still works the same)
 
 ``` r
-classify("C:/Users/techstaff/Desktop/packagetest/Supplementary Data/Data/check1", threshold=.001, "deleteStart")
+classify("C:/Users/techstaff/Desktop/packagetest/Supplementary Data/Data/check3", threshold=.001, "deleteStart")
 #> [1] "creating attributes for training data"
 #> [1] "getting behaviour modes of data"
 #> [1] "compressing feature vectors"
@@ -139,9 +140,10 @@ classify("C:/Users/techstaff/Desktop/packagetest/Supplementary Data/Data/check1"
     #> [1] "getting behaviour modes of data"
     #> [1] "compressing feature vectors"
     #> [1] "creating attributes"
-    #> [1] "creating plots of behaviours. You have 3 behaviours"
+    #> [1] "creating plots of behaviours. You have 6 behaviours"
 
 <img src="man/figures/README-numerous attributes and attributes-2.png" width="100%" />
 
-    #> [1] G  OC OC OC OG
+    #>  [1] OE  GE  OE  OE  OE  GE  OE  GDE DGE OE  GE  OE  OE  OE  OD  GDE DE  GE  DGE
+    #> [20] OE 
     #> Levels: D DE DG DGE E G GD GDE GE OC OD OE OG
