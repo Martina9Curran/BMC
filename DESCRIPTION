@@ -1,5 +1,5 @@
-Package: TDC
-Title: TimeSeries Decision tree Classifier
+Package: BMC
+Title: Behaviour Mode Classifier
 Version: 0.0.0.9000
 Authors@R: 
     person("Martina", "Curran", , "martinamariecurran@gmail.com", role = c("aut", "cre"))
