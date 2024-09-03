@@ -1,13 +1,13 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# TDC
+# BMC
 
 <!-- badges: start -->
 
 <!-- badges: end -->
 
-The goal of TDC is to classify timeseries data into one of 13
+The goal of BMC is to classify timeseries data into one of 13
 behaviours: G: Growth D: Decline E: Equilibrium GD: Growth and Decline
 GE: Growth and Equilibrium DG: Decline and Growth DE: Decline and
 Equilibrium GDE: Growth, Decline and Equilibrium DGE: Decline, Growth
@@ -16,12 +16,12 @@ Oscillating Decline OE: Oscillating Equilibrium
 
 ## Installation
 
-You can install the development version of TDC from
+You can install the development version of BMC from
 [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("Martina9Curran/TDC")
+devtools::install_github("Martina9Curran/BMC")
 ```
 
 ## Example
@@ -31,7 +31,7 @@ Please note you need to include the path to the file, it works with .csv
 only, but do not add .csv to the path\!
 
 ``` r
-library(TDC)
+library(BMC)
 ## basic example code
 behaviours <- classify("C:/Users/techstaff/Desktop/packagetest/Supplementary Data/Data/check3")
 #> [1] "creating attributes for training data"
