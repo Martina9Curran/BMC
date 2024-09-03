@@ -13,12 +13,12 @@ knitr::opts_chunk$set(
 )
 ```
 
-# TDC
+# BMC
 
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of TDC is to classify timeseries data into one of 13 behaviours:
+The goal of BMC is to classify timeseries data into one of 13 behaviours:
 G: Growth
 D: Decline
 E: Equilibrium
@@ -35,11 +35,11 @@ OE: Oscillating Equilibrium
 
 ## Installation
 
-You can install the development version of TDC from [GitHub](https://github.com/) with:
+You can install the development version of BMC from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("Martina9Curran/TDC")
+devtools::install_github("Martina9Curran/BMC")
 ```
 
 ## Example
@@ -47,7 +47,7 @@ devtools::install_github("Martina9Curran/TDC")
 This is a basic example which shows you how to solve a common problem:
 Please note you need to include the path to the file, it works with .csv only, but do not add .csv to the path!
 ```{r example}
-library(TDC)
+library(BMC)
 ## basic example code
 behaviours <- classify("C:/Users/techstaff/Desktop/packagetest/Supplementary Data/Data/check3")
 ```
